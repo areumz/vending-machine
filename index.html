@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vending-machine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&  display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <h1>
+            <img class="img-logo" src="./img/logo.png" alt="cockcola-vending-machine">
+        </h1>
+        <ul class="box-cola">
+            <li class="container-cola original">
+                <span class="txt-cola">Original_Cola</span>
+                <button class="price-cola">1000원</button>
+                
+            </li>
+            <li class="container-cola violet sold-out">
+                <span class="txt-cola">Violet_Cola</span>
+                <button class="price-cola">1000원</button>
+            </li>
+            <li class="container-cola yellow">
+                <span class="txt-cola">Yellow_Cola</span>
+                <button class="price-cola">1000원</button>
+            </li>
+            <li class="container-cola cool">
+                <span class="txt-cola">Cool_Cola</span>
+                <button class="price-cola">1000원</button>
+            </li>
+            <li class="container-cola green is-selected">
+                <span class="txt-cola">Green_Cola</span>
+                <button class="price-cola">1000원</button>
+            </li>
+            <li class="container-cola orange">
+                <span class="txt-cola">Orange_Cola</span>
+                <button class="price-cola">1000원</button>
+            </li>
+        </ul>
+        <section>
+            <h2 class="txt-hide">잔액, 거스름돈, 입금액, 선택 음료</h2>
+            <div class="container-balance-return">
+                <div class="container-balance">
+                    <span class="txt-balance">잔액: </span>
+                    <span class="money-balance">1,000원</span>
+                </div>
+                <button class="btn-return">거스름돈 반환</button>
+            </div>
+            <input class="inp-money" type="text" id="money" placeholder="입금액 입력">
+            <label class="txt-hide" for="money">입금액</label>
+            <button class="btn-money">입금</button>
+            <div class="container-pick-get">
+                <ul class="box-pick">
+                    <li class="container-pick">
+                        <span class="item-pick">Original_Cola</span>
+                        <span>1</span>
+                    </li>
+                </ul>
+                <button class="btn-get">획득</button>
+            </div>
+            <div class="container-mymoney">
+                <span class="txt-mymoney">소지금:</span>
+                <span class="money-mymoney">25,000원</span>
+            </div>
+        </section>
+        <section>
+            <h2 class="title-get">획득한 음료</h2>
+            <ul class="box-get">
+                <li class="container-get">
+                    Original_Cola
+                    <span>1</span>
+                </li>
+                <li class="container-get">
+                    Green_Cola
+                    <span>2</span>
+                </li>
+                <li class="container-get">
+                    Orange_Cola
+                    <span>1</span>
+                </li>
+                <li class="container-get">
+                    Violet_Cola
+                    <span>5</span>
+                </li>
+            </ul>
+            <div class="container-amount">
+                <span class="txt-amount">총금액:</span>
+                <span class="money-amount">9,000원</span>
+            </div>
+        </section>
+    </section>
+</body>
+</html>
