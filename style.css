@@ -1,281 +1,278 @@
-/* reset */
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+@charset "utf-8";
+
+body {
+    background-color: #EAE8FE;
+}
+
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 248px;
+    gap: 0 28px;
     font-family: 'Noto Sans KR', sans-serif;
+}
+
+#app .vending-machine,
+#app .container-mypage {
+    width: 360px;
+    background-color: #fff;
     box-sizing: border-box;
 }
 
-.txt-hide { 
-    position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
+.img-item {
+    display: block;
 }
 
 /* 로고 */
-.img-logo {
-    display: block;
-    width: 166px;
-    margin: 0 auto;
+#app .title-app {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    max-width: 386px;
+    height: 180px;
+    background-image: url(./img/logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
 }
 
-/* 콜라 리스트 */
-.box-cola {
-    text-align: center;
+/* vending-machine */
+#app .vending-machine {
+    padding: 31px 27px 28px;
 }
 
-.container-cola {
-    display: inline-block;
-    width: 94px;
-    margin: 0 12px 12px 0;
-    border: 1px solid #BDBDBD;
+.vending-machine .list-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.vending-machine .list-item li {
+    position: relative;
     border-radius: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 
-.container-cola:hover,
-.container-cola:focus {
+.vending-machine .list-item li:hover,
+.vending-machine .list-item li:focus {
     outline: 3px solid #6327fe;
 }
 
-.txt-cola {
+.vending-machine .list-item li .img-item {
     display: block;
-    margin: 82px 10px 7px 11px;
-    font-size: 9px;
-    font-weight: 500;
-    line-height: 1.4;
-    text-align: center;
+    width: 36px;
+    margin: 0 auto;
 }
 
-.price-cola {
-    width: 70px;
-    margin: 0 11px 9px 13px;
-    padding: 5px 16px 5px 15px;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 100%;
-    background-color: #6327fe;
-    border: none;
-    border-radius: 50px;
+.vending-machine .list-item li.sold-out {
+    pointer-events: none;
 }
 
-.original {
-    background-image: url(./img/Original_Cola.svg);
-    background-repeat: no-repeat;
-    background-size: 35px 64px;
-    background-position: 29px 12px;
-}
-
-
-.violet {
-    background-image: url(./img/Violet_Cola.svg);
-    background-repeat: no-repeat;
-    background-size: 35px 64px;
-    background-position: 29px 12px;
-}
-
-.yellow {
-    background-image: url(./img/Yellow_Cola.svg);
-    background-repeat: no-repeat;
-    background-size: 35px 64px;
-    background-position: 29px 12px;
-}
-
-.cool {
-    background-image: url(./img/Cool_Cola.svg);
-    background-repeat: no-repeat;
-    background-size: 35px 64px;
-    background-position: 29px 12px;
-}
-
-.green {
-    background-image: url(./img/Green_Cola.svg);
-    background-repeat: no-repeat;
-    background-size: 35px 64px;
-    background-position: 29px 12px;
-}
-
-.orange {
-    background-image: url(./img/Orange_Cola.svg);
-    background-repeat: no-repeat;
-    background-size: 35px 64px;
-    background-position: 29px 12px;
-}
-
-.sold-out {
-    display: inline-block;
-    width: 94px;
-    position: relative;
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.8);
-}
-
-.sold-out::before {
-    content: url(./img/Sold-out.svg);
+.vending-machine .list-item li.sold-out::before {
+    content: '';
+    display: block;
     position: absolute;
-    top: 22px;
-    left: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 10px;
+    background: no-repeat center / 60px 46px url('./img/Sold-out.svg') rgba(0, 0, 0, 0.5);
 }
+
+.vending-machine .list-item li.sold-out::after {
+    content: '품절';
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    line-height: 0;
+    font-size: 1px;
+    color: transparent;
+}
+
+.vending-machine .btn-item {
+    padding: 11px 0 9px;
+}
+
+.vending-machine .title-item {
+    display: block;
+    line-height: 13px;
+    font-size: 9px;
+    margin: 6px 0 7px;
+}
+
+.vending-machine .txt-price {
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px 12px;
+    background-color: #6327fe;
+    border-radius: 50px;
+    color: #fff;
+}
+
 
 /* 잔액, 거스름돈, 선택 음료 */
-.container-balance-return {
-    display: flex;
+.container-buy {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-.container-balance {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 12px 11px 27px;
-    padding: 6px 10px 7px 10px;
-    background-color: #eae8fe;
-    border: none;
+.container-buy .info-balance,
+.container-buy .input-put,
+.container-buy .list-item-staged {
+    padding: 7px 10px;
+    box-sizing: border-box;
     border-radius: 5px;
 }
 
-.txt-balance, .money-balance {
-    line-height: 1.4;
-}
-
-.btn-return {
-    margin: 20px 27px 11px 7px;
-    height: 35px;
-}
-
-.btn-money {
-    margin: 0 0 8px 4px;
-}
-
-.btn-return,
-.btn-money {
-    width: 94px;
-    padding: 6px 8px 8px 8px;
-    border: 1px solid #BDBDBD;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.container-buy .btn-return,
+.container-buy .btn-put,
+.container-buy .btn-get {
     font-size: 13px;
-    font-weight: 500;
-    line-height: 1.4;
-}
-
-.container-pick-get {
-    display: flex;
-}
-
-.btn-get {
-    width: 94px;
-    height: 106px;
-    margin: 12px 25px 0 5px;
-    padding: 43px 35px 44px 35px;
-    background-color: #6327fe;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: none;
     border-radius: 5px;
-    color: #fff;
-    font-size: 13px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.container-buy .info-balance {
+    grid-column: 1/3;
+    font-size: 14px;
+    background-color: #EAE8FE;
+}
+
+.info-balance .txt-balance {
+    float: right;
+}
+
+.container-buy .btn-get {
     font-weight: 700;
-    line-height: 1.4;
+    background-color: #6327fe;
+    color: #fff;
 }
 
-.inp-money {
-    display: inline-block;
-    width: 200px;
-    margin: 0 12px 0 27px;
-    padding: 7px 9px 7px 127px;
+.container-buy .input-put {
+    grid-column: 1/3;
     border: 1px solid #BDBDBD;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 1.4;
-    text-align: right;
 }
 
-.box-pick {
-    display: inline-block;
-    margin: 11px 12px 20px 27px;
-    width: 200px;
+.container-buy .list-item-staged {
+    grid-column: 1/3;
     height: 106px;
-    background-color: #eae8fe;
+    overflow-y: scroll;
     border: 1px solid #BDBDBD;
-    border-radius: 5px;
+    background-color: #EAE8FE;
 }
 
-.container-pick {
-    width: 170px;
-    padding: 10px 10px;
-    border: 1px solid #BDBDBD;
+.list-item-staged li {
+    box-sizing: border-box;
+    padding: 8px;
     border-radius: 5px;
     background-color: #fff;
 }
 
-.item-pick {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 500;
-    line-height: 1.4;
+.list-item-staged li+li {
+    margin-top: 6px;
 }
 
-.item-get::before {
-    content: '';
-    display: inline-block;
+.list-item-staged .img-item,
+.list-item-staged .name-item {
+    float: left;
+}
+
+.list-item-staged .img-item {
     width: 18px;
-    height: 33px;
-    background-image: url(./img/Original_Cola.svg);
-    background-repeat: no-repeat;
-    background-size: 18px 33px;
 }
 
-.container-mymoney {
-    width: 306px;
-    margin: 0 27px 41px 27px;
+.list-item-staged .name-item {
+    margin-left: 10px;
+    line-height: 33px;
+    font-size: 9px;
+}
+
+.list-item-staged .num-counter {
     display: flex;
-    justify-content: space-between;
-    padding: 6px 10px 7px 10px;
-    background-color: #eae8fe;
-    border: none;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    float: right;
+}
+
+/* 나의 정보 */
+#app .container-mypage {
+    background-color: #EAE8FE;
+}
+
+.container-mypage .container-mymoney {
+    padding: 9px 27px;
+    background-color: #fff;
+}
+
+.container-mymoney .info-mymoney {
+    padding: 6px 10px;
+    line-height: 20px;
+    background-color: #EAE8FE;
     border-radius: 5px;
 }
 
-.txt-mymoney, .money-mymoney {
-    line-height: 1.4;
+.container-mymoney .txt-mymoney {
+    float: right;
+    font-weight: 700;
 }
 
-/* 획득한 음료 */
-.title-get {
+.container-mypage .container-myitems {
+    margin-top: 20px;
+    padding: 25px 27px 32px;
+    background-color: #fff;
+}
+
+.container-myitems .title-myitems {
+    display: block;
+    text-align: center;
+    margin-bottom: 13px;
     font-size: 14px;
     font-weight: 700;
-    line-height: 1.4;
-    text-align: center;
 }
 
-.box-get {
-    display: inline-block;
-    margin: 11px 12px 20px 27px;
-    width: 306px;
-    background-color: #eae8fe;
+.container-myitems .list-item-staged {
+    height: 364px;
+    overflow-y: scroll;
+    padding: 12px;
+    background: #EAE8FE;
     border: 1px solid #BDBDBD;
+    box-sizing: border-box;
     border-radius: 5px;
 }
 
-.container-get {
-    width: 170px;
-    padding: 10px 10px;
-    border: 1px solid #BDBDBD;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-.container-amount {
-    margin: 6px 20px 43px 245px;
-}
-
-.txt-amount, .money-amount {
+.container-myitems .txt-total {
+    display: block;
+    text-align: right;
     font-size: 12px;
-    font-weight: 500;
-    line-height: 1.4;
+    line-height: 17px;
+    margin-top: 10px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        background-color: #fff;
+    }
+
+    #app {
+        padding-top: 65px;
+    }
+
+    #app .title-app {
+        width: 166px;
+        height: 70px;
+    }
+
+    .container-mypage .container-myitems {
+        margin-top: 0;
+        padding: 31px 27px 32px;
+    }
 }
